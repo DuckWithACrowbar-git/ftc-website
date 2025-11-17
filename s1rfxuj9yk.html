@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Protected</title>
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; max-width:720px; margin:40px auto; padding:0 16px; color:#111; }
+  button { padding:8px 12px; font-size:1rem; }
+</style>
+</head>
+<body>
+  <div id="app"><p>Checking access...</p></div>
+
+<script>
+async function checkAccess() {
+  const resp = await fetch('/check_access', { method: 'GET', credentials: 'include' });
+  if (!resp.ok) return false;
+  const j = await resp.json().catch(()=>({}));
+  return j.ok === true;
+}
+
+async function logout() {
+  await fetch('/logout', { method: 'POST', credentials: 'include' });
+  sessionStorage.clear();
+  location.href = 'password.html';
+}
+
+(async function(){
+  const app = document.getElementById('app');
+  try {
+    const ok = await checkAccess();
+    if (!ok) {
+      location.href = 'password.html';
+      return;
+    }
+    app.innerHTML = '<h1>Protected content</h1><p>Access granted.</p><p><button id="logoutBtn">Sign out</button></p>';
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+  } catch (e) {
+    location.href = 'password.html';
+  }
+})();
+</script>
+</body>
+</html>
