@@ -1,21 +1,22 @@
-function checkPassword() {
-  const password = document.getElementById("passwordInput").value.trim();
+// script.js - example for the login form
+document.querySelector("#loginForm").addEventListener("submit", async (ev) => {
+  ev.preventDefault();
+  const pw = document.querySelector("#password").value;
+  const form = new URLSearchParams();
+  form.append("password", pw);
 
-  // ⚠️ Hardcoding password is insecure, but okay for demo
-  const correctPassword = "test";
+  const res = await fetch("/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: form.toString()
+  });
 
-  // If no password entered, redirect back to index.html
-  if (!password) {
-    window.location.href = "index.html";
-    return;
-  }
-
-  if (password === correctPassword) {
-    // Mark session as authenticated (client-side only)
-    sessionStorage.setItem('authenticated', 'true');
-    // Redirect to protected media folder
-    window.location.href = "media/";
+  // server redirects on success; follow will auto-handle, but we can check:
+  if (res.redirected) {
+    window.location = res.url;
   } else {
-    alert("Incorrect password. Try again.");
+    // fallback - try to go to /media/
+    window.location = "/media/";
   }
-}
+});
+
