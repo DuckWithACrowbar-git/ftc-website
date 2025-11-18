@@ -6,7 +6,7 @@ import urllib.parse
 import os
 import threading
 
-PORT = 8000
+PORT = 80
 ALLOWED_FILE = "allowed_ips.txt"
 PASSWORD = os.environ.get("SITE_PASSWORD", "R0b0t1nTh3c1ub")  # change to add password
 LOCK = threading.Lock()
