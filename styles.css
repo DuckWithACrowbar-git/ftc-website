@@ -29,6 +29,13 @@
   --disabled: #efefef;
 }
 
+.center-text-container {
+  text-align: center;
+}
+
+.left-offset {
+  text-align: left;
+}
 
 
 /* Dark theme */
@@ -86,8 +93,8 @@ header {
   box-sizing: border-box;
   left: 50%;
   right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: -25vw;
+  margin-right: -25vw;
 }
 
 /* Remove margins for header text */

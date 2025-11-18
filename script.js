@@ -1,4 +1,4 @@
-// script.js - example for the login form
+// script.js - example for the login form 
 document.querySelector("#loginForm").addEventListener("submit", async (ev) => {
   ev.preventDefault();
   const pw = document.querySelector("#password").value;
