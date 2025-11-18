@@ -55,7 +55,7 @@ class AuthHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 # failed -> redirect back to root (you can add query params for UI)
                 self.send_response(302)
-                self.send_header("Location", "/?login=failed")
+                self.send_header("Location", "/login.html?login=failed")
                 self.end_headers()
         else:
             # fallback to normal behavior
@@ -70,7 +70,7 @@ class AuthHandler(http.server.SimpleHTTPRequestHandler):
             if not self.is_allowed_ip(client):
                 # redirect to login page
                 self.send_response(302)
-                self.send_header("Location", "/")
+                self.send_header("Location", "/index.html")
                 self.end_headers()
                 return
         # otherwise serve files normally
