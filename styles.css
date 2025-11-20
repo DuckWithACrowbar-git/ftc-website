@@ -37,6 +37,27 @@
   text-align: left;
 }
 
+.teams-div {
+  display: flex;
+  justify-content: space-around;
+  /* Optional: align items, justify content, etc. */
+  /* justify-content: space-around; */
+  /* align-items: center; */
+}
+    
+.teams-boxes {
+  /* Optional: flex-grow, flex-shrink, flex-basis */
+  /* flex: 1; */
+  padding: 20px;
+  border: 1px solid black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.hidden {
+  visibility: hidden;
+}
+
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
