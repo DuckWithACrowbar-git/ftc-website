@@ -8,7 +8,7 @@ import threading
 
 PORT = 80
 ALLOWED_FILE = "allowed_ips.txt"
-PASSWORD = os.environ.get("SITE_PASSWORD", "R0b0t1nTh3c1ub")  # <-- change password here if necessary
+PASSWORD = os.environ.get("SITE_PASSWORD", "RobotInTheClub")  # <-- change password here if necessary
 LOCK = threading.Lock()
 
 def load_allowed():
