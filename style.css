@@ -112,6 +112,11 @@ html{
 }
 
 
+.login_title{
+    font-family: "Ubuntu";
+}
+
+
 .submit{
     font-family: var(--sans-font);
     background-color: var(--marked);
@@ -161,8 +166,8 @@ html{
 
 @keyframes password_box_focus_anim{
     0% {transform: scale(1.1);}
-    50% {transform: scale(1.23);}
-    100% {transform: scale(1.2);}
+    50% {transform: scale(1.25);}
+    100% {transform: scale(1.19);}
 }
 
 
