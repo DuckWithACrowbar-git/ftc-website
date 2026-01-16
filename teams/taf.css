@@ -1,4 +1,4 @@
-/* Please tripe-newline different classes to read/edit code better -Hussein*/
+/* Please double-newline different classes to read/edit code better -Hussein*/
 :root{
     --bg: #fff;
     --accent-bg: #f5f7ff;
@@ -51,8 +51,8 @@ html{
 
 
 @keyframes title-div-highlight{
-    0% {border: 0px solid rgb(255, 255, 255); transform: scale(1);}
-    100% {border: 4px solid rgb(164, 164, 164); transform: scale(1.08);}
+    0% {border: 0px solid rgb(149, 149, 149); transform: scale(1);}
+    100% {border: 6px solid rgb(255, 255, 255); transform: scale(1.08);}
 }
 
 
@@ -69,8 +69,9 @@ html{
 
 
 .bar{
-    color: red;
-    background-color: red;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    /*Make color and background-color the same for the bar*/
     width: 475px;
     height: 5px;
     margin-left: auto;
@@ -98,14 +99,17 @@ html{
     padding-left: 90px;
 }
 
+
 .about-us-text-highlighted{
     padding: 2px;
-    background-color: #ff1515;
-    border: 2px solid #ff1515;
+    color: #000000;
+    background-color: #d9d9d9;
+    border: 2px solid #d9d9d9;
     border-radius: 7px;
     width: fit-content;
     height: fit-content;
 }
+
 
 .about-us-image-container{
     display: grid;
@@ -114,13 +118,16 @@ html{
     grid-template-columns: repeat(2, 150px);
     grid-template-rows: repeat(2, 150px);
     gap: 10px;
-    width: 310px;
-    
-    
+    width: auto;
+    justify-content: right;
+    justify-items: right;
 }
+
 
 .about-us-image{
     margin: -2px;
     border: 2px solid #ffffff;
     border-radius: 15px;
+    width: 150px;
+    height: auto;
 }
