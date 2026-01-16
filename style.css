@@ -1,3 +1,19 @@
+:root{
+    --bg: #fff;
+    --accent-bg: #f5f7ff;
+    --text: #212121;
+    --text-light: #585858;
+    --border: #d8dae1;
+    --accent: #0d47a1;
+    --accent-light: #90caf9;
+    --code: #d81b60;
+    --preformatted: #444;
+    --marked: #ffdd33;
+    --disabled: #efefef;
+    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
 html{
     background-color: #212121;
     color: #ffffff;
@@ -6,6 +22,11 @@ html{
 
 }
 
+
+.taf-link{
+    color: var(--text-light);
+    background-color: #0d47a1;
+}
 
 .title {
     justify-content: center;
@@ -94,24 +115,7 @@ html{
 
 
 
-/* Login page section */
-:root{
-    --bg: #fff;
-    --accent-bg: #f5f7ff;
-    --text: #212121;
-    --text-light: #585858;
-    --border: #d8dae1;
-    --accent: #0d47a1;
-    --accent-light: #90caf9;
-    --code: #d81b60;
-    --preformatted: #444;
-    --marked: #ffdd33;
-    --disabled: #efefef;
-    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
-    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-}
-
-
+/* Login page section*/
 .login_title{
     font-family: "Ubuntu";
 }
