@@ -107,6 +107,20 @@ html{
     height: fit-content;
 }
 
-.about-us-images{
-    text-align: right;
+.about-us-image-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 10px;
+    width: 310px;
+    
+    
+}
+
+.about-us-image{
+    margin: -2px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
 }
