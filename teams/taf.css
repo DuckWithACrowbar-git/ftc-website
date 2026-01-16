@@ -17,11 +17,11 @@
 
 
 html{
-    background-color: #212121;
+    background-color: #0c0c0c;
     color: #ffffff;
     font-family: "Ubuntu", sans-serif;
     font-style: normal;
-
+    background: linear-gradient(0deg, hsl(220, 50%, 6%) 0%, hsl(220, 60%, 2%) 100%)
 }
 
 
@@ -32,8 +32,8 @@ html{
 
 .title-div{
     justify-content: center;
-    color: #212121;
-    background-color: var(--border);
+    color: hsl(16, 100%, 50%);
+    background-color: #0c0c0c;
     padding: 7px;
     padding-left: 13x;
     padding-right: 13px;
@@ -51,8 +51,8 @@ html{
 
 
 @keyframes title-div-highlight{
-    0% {border: 0px solid rgb(149, 149, 149); transform: scale(1);}
-    100% {border: 6px solid rgb(255, 255, 255); transform: scale(1.08);}
+    0% {border: 0px solid rgb(114, 114, 114); transform: scale(1);}
+    100% {border: 6px solid rgb(177, 0, 0); background-color: hsl(220, 50%, 6%); transform: scale(1.08);}
 }
 
 
@@ -69,8 +69,8 @@ html{
 
 
 .bar{
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 255, 255);
+    color: rgb(255, 0, 0);
+    background-color: rgb(255, 0, 0);
     /*Make color and background-color the same for the bar*/
     width: 475px;
     height: 5px;
@@ -103,8 +103,8 @@ html{
 .about-us-text-highlighted{
     padding: 2px;
     color: #000000;
-    background-color: #d9d9d9;
-    border: 2px solid #d9d9d9;
+    background-color: #b70000;
+    border: 2px solid #b70000;
     border-radius: 7px;
     width: fit-content;
     height: fit-content;
