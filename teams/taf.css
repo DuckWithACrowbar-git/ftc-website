@@ -1,3 +1,4 @@
+/* Please tripe-newline different classes to read/edit code better -Hussein*/
 :root{
     --bg: #fff;
     --accent-bg: #f5f7ff;
@@ -14,10 +15,27 @@
     --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
 
+
 html{
     background-color: #212121;
     color: #ffffff;
     font-family: "Ubuntu", sans-serif;
     font-style: normal;
 
+}
+
+
+.title-div{
+    justify-content: center;
+    color: #212121;
+    background-color: var(--border);
+    padding: 7px;
+    padding-left: 13x;
+    padding-right: 13px;
+    border: 1px var(--border);
+    border-radius: 15px;
+    /*width: 220px;*/
+    width: fit-content;
+    height: fit-content;
+    
 }
