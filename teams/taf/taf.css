@@ -71,6 +71,8 @@ html{
 .bar{
     color: rgb(255, 0, 0);
     background-color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+    border-radius: 30px;
     /*Make color and background-color the same for the bar*/
     width: 475px;
     height: 5px;
@@ -94,9 +96,20 @@ html{
 }
 
 
+@keyframes about-us-text-anim{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 .about-us-text{
     font-size: 15px;
     padding-left: 90px;
+    opacity: 0;
+    animation-name: about-us-text-anim;
+    animation-duration: 1s;
+    animation-delay: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 
@@ -111,23 +124,58 @@ html{
 }
 
 
-.about-us-image-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    grid-template-columns: repeat(2, 150px);
-    grid-template-rows: repeat(2, 150px);
-    gap: 10px;
-    width: auto;
+.photo-collage1{
+    display: flex;
     justify-content: right;
-    justify-items: right;
+    align-content: right;
+    float: right;
+    padding-right: 100px;
 }
 
 
-.about-us-image{
-    margin: -2px;
-    border: 2px solid #ffffff;
-    border-radius: 15px;
-    width: 150px;
-    height: auto;
+.photo-collage-image1{
+    /*width: 200px;
+    height: 150px;*/
+    width: 0px;
+    height: 0px;
+    transform-origin: bottom right;
+    border: 6px solid #ffffff;
+    border-radius: 20px;
+    animation-name: photo-collage-images-anim;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+.photo-collage2{
+    display: flex;
+    justify-content: right;
+    align-content: right;
+    float: right;
+    padding-right: 100px;
+}
+
+
+.photo-collage-image2{
+    /*width: 200px;
+    height: 150px;*/
+    width: 0px;
+    height: 0px;
+    transform-origin: bottom right;
+    border: 6px solid #ffffff;
+    border-radius: 20px;
+    animation-name: photo-collage-images-anim;
+    animation-duration: 2s;
+    animation-delay: 4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes photo-collage-images-anim{
+    0% {width: 0px; height: 0px;}
+    50%{width: 200px; height:0px;}
+    100%{width: 200px; height: 150px}
 }
