@@ -30,6 +30,38 @@ html{
 }
 
 
+.center-text{
+    display: flex;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+}
+
+.fade-in{
+    animation-name: fade-in-anim;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+
+.section-text{
+    animation-delay: 5s;
+    opacity: 0;
+    display: flex;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+    padding-right: 400px;
+}
+
+
+@keyframes fade-in-anim{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+
 .title-div{
     justify-content: center;
     color: hsl(16, 100%, 50%);
@@ -125,11 +157,10 @@ html{
 
 
 .photo-collage1{
-    display: flex;
+    display: inline-block;
     justify-content: right;
     align-content: right;
-    float: right;
-    padding-right: 100px;
+    padding-left: 200px;
 }
 
 
@@ -143,32 +174,7 @@ html{
     border-radius: 20px;
     animation-name: photo-collage-images-anim;
     animation-duration: 2s;
-    animation-delay: 4s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-
-
-.photo-collage2{
-    display: flex;
-    justify-content: right;
-    align-content: right;
-    float: right;
-    padding-right: 100px;
-}
-
-
-.photo-collage-image2{
-    /*width: 200px;
-    height: 150px;*/
-    width: 0px;
-    height: 0px;
-    transform-origin: bottom right;
-    border: 6px solid #ffffff;
-    border-radius: 20px;
-    animation-name: photo-collage-images-anim;
-    animation-duration: 2s;
-    animation-delay: 4s;
+    animation-delay: 6.7s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -177,5 +183,5 @@ html{
 @keyframes photo-collage-images-anim{
     0% {width: 0px; height: 0px;}
     50%{width: 200px; height:0px;}
-    100%{width: 200px; height: 150px}
+    100%{width: 200px; height: 150px;}
 }
