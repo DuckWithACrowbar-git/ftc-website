@@ -49,10 +49,7 @@ html{
     animation-delay: 5s;
     opacity: 0;
     display: flex;
-    align-content: center;
-    align-self: center;
-    justify-content: center;
-    padding-right: 400px;
+    padding-left: 325px;
 }
 
 
