@@ -21,7 +21,7 @@ html{
     color: #ffffff;
     font-family: "Ubuntu", sans-serif;
     font-style: normal;
-    background: linear-gradient(0deg, hsl(220, 50%, 6%) 0%, hsl(220, 60%, 2%) 100%)
+    background: linear-gradient(0deg, rgb(0, 13, 158) 0%, rgb(0, 64, 213) 100%)
 }
 
 
@@ -166,6 +166,7 @@ html{
     height: 150px;*/
     width: 0px;
     height: 0px;
+    opacity: 0;
     transform-origin: bottom right;
     border: 6px solid #ffffff;
     border-radius: 20px;
@@ -178,36 +179,8 @@ html{
 
 
 @keyframes photo-collage-images-anim{
-    0% {width: 0px; height: 0px;}
-    50%{width: 200px; height:0px;}
-    100%{width: 200px; height: 150px;}
-}
-
-
-.mtt-section-container {
-    display: inline-flex;
-    float: right;
-    justify-self: center;
-    justify-content: center;
-    align-content: center;
-    animation-delay: 8.5s;
-    padding-right: 30px;
-}
-
-
-.mtt-section-teammates{
-    animation-delay: 9s;
-}
-
-
-.mtt-button{
-    display: initial;
-    float: right;
-    width: fit-content; 
-    height: auto;
-    padding: 5px;
-    background-color: #000000;
-    border-radius: 10px;
-    color: #c10000;
-    border: 5px solid #c10000;
+    0% {width: 0px; height: 0px; opacity: 0;}
+    15%{opacity: 1;}
+    50%{width: 200px; height:0px; opacity: 1;}
+    100%{width: 200px; height: 150px; opacity: 1;}
 }
