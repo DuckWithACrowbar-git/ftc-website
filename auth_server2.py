@@ -19,7 +19,7 @@ CERT_FILE = f"/etc/letsencrypt/live/{DOMAIN}/fullchain.pem"
 KEY_FILE = f"/etc/letsencrypt/live/{DOMAIN}/privkey.pem"
 
 ALLOWED_FILE = "allowed_ips.txt"
-PASSWORD = os.environ.get("SITE_PASSWORD", "RobotInTheClub")
+PASSWORD = os.environ.get("SITE_PASSWORD", "testpass")
 LOCK = threading.Lock()
 
 # =====================
