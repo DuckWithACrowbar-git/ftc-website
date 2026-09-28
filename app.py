@@ -13,7 +13,7 @@ REQUESTS_PER_MIN = 60
 
 
 # Static Variables
-PORT=1234
+PORT=4321
 PASSWORD_HASH=generate_password_hash("changeme")
 SECRET_KEY=str(random()+random()-random()+randrange(1,999999))
 MEDIA_ROOT=Path("media").resolve()
