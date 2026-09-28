@@ -1,18 +1,32 @@
-from flask import Flask, render_template, request, redirect, session, send_from_directory, abort, jsonify
+from flask import Flask, render_template, request, redirect, session, send_from_directory, abort, jsonify, send_file
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from pathlib import Path
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
+from random import random, randrange
 import os
 
+# Changeable variables
+REQUESTS_PER_MIN = 60
+
+
+# Static Variables
 PORT=1234
 PASSWORD_HASH=generate_password_hash("changeme")
-SECRET_KEY="replace-with-random-secret"
+SECRET_KEY=str(random()+random()-random()+randrange(1,999999))
 MEDIA_ROOT=Path("media").resolve()
 
 app=Flask(__name__)
 app.secret_key=SECRET_KEY
 app.config["PERMANENT_SESSION_LIFETIME"]=timedelta(hours=24)
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=[f"{REQUESTS_PER_MIN} per minute"],
+    storage_uri="memory://")
 
 MEDIA_ROOT.mkdir(exist_ok=True)
 
@@ -58,6 +72,7 @@ def listing():
     return jsonify(out)
 
 @app.route('/media')
+@limiter.limit("180 per minute", override_defaults=True)
 def media():
     if not auth(): return redirect('/login')
     return render_template('media.html')
@@ -88,6 +103,24 @@ def file(file):
     if not auth(): abort(401)
     target=safe_path(file)
     return send_from_directory(target.parent,target.name)
+
+@app.route("/ping")
+def ping():
+    return "PONG"
+
+@app.route("/robots.txt")
+def robots():
+    return send_file('robots.txt', as_attachment=False)
+
+
+# Error handlers
+@app.errorhandler(429)
+def ratelimit(error):
+    return render_template("429.html", rqm=REQUESTS_PER_MIN, ip=request.remote_addr)
+
+@app.errorhandler(404)
+def notfound(error):
+    return render_template("404.html")
 
 if __name__=='__main__':
     app.run(host='0.0.0.0',port=PORT,threaded=True)
