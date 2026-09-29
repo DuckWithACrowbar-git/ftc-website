@@ -1,3 +1,4 @@
 flask
 werkzeug
 Flask-Limiter
+flask-ipban

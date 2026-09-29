@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect, session, send_from_directory, abort, jsonify, send_file
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_ipban import IpBan
 from pathlib import Path
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 from random import random, randrange
+from hashlib import sha256
 import os
 
 # Changeable variables
@@ -15,8 +17,14 @@ REQUESTS_PER_MIN = 60
 # Static Variables
 PORT=4321
 PASSWORD_HASH=generate_password_hash("changeme")
-SECRET_KEY=str(random()+random()-random()+randrange(1,999999))
 MEDIA_ROOT=Path("media").resolve()
+ip_ban = IpBan(ban_seconds=86400)
+
+#Calculation for secret key
+sc_value = str(random() + random() - random() + randrange(1,9999)).replace(".","").encode("utf-8")
+sc_value = sha256(sc_value).hexdigest()
+SECRET_KEY = sc_value
+
 
 app=Flask(__name__)
 app.secret_key=SECRET_KEY
@@ -27,6 +35,9 @@ limiter = Limiter(
     app=app,
     default_limits=[f"{REQUESTS_PER_MIN} per minute"],
     storage_uri="memory://")
+
+ip_ban.init_app(app)
+
 
 MEDIA_ROOT.mkdir(exist_ok=True)
 
@@ -115,11 +126,18 @@ def robots():
 
 # Error handlers
 @app.errorhandler(429)
-def ratelimit(error):
-    return render_template("429.html", rqm=REQUESTS_PER_MIN, ip=request.remote_addr)
+def ratelimit(e):
+    ip = request.remote_addr
+    ip_ban.add(ip=ip)
+    ip_status = ip_ban.get_ip(ip)
+    current_count = ip_status.get("count", 0) if ip_status else 0
+    if current_count >= 5:
+        ip_ban.block(ip, permanent=False)
+        return render_template("ratelimit2.html", rqm=REQUESTS_PER_MIN), 429
+    return render_template("ratelimit1.html", rqm=REQUESTS_PER_MIN, ip=request.remote_addr), 429
 
 @app.errorhandler(404)
-def notfound(error):
+def notfound(e):
     return render_template("404.html")
 
 if __name__=='__main__':
